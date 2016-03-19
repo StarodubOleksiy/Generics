@@ -35,7 +35,7 @@ interface Validator<T> {
 
 //Task<Integer> testTask5 = new TaskImpl<Number>(listOfNumbers4);
 class TaskImpl<T> implements Task {
-    List<? extends T> result;
+   private List<? extends T> result;
   //HashSet<Character> alphabet; 
   public TaskImpl(List<? extends T> values) {
   this.result = values;
@@ -51,9 +51,9 @@ class TaskImpl<T> implements Task {
 
 class ExecutorImpl<T> implements Executor {
 private Deque<Task> taskQue;
-List<T> validResult;
-List<T> inValidResult;
-Validator validator;
+private List<T> validResult;
+private List<T> inValidResult;
+private Validator validator;
 boolean calledExecute;
 boolean calledAddTask;
 
