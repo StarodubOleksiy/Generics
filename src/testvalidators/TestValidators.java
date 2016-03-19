@@ -40,7 +40,7 @@ class TaskImpl<T> implements Task {
   public TaskImpl(List<? extends T> values) {
   this.result = values;
   }   
-    List<Number> values;
+    List<T> values;
 
     @Override
    public List<? extends T>  getResult()
@@ -176,7 +176,7 @@ public class TestValidators {
         Task<Integer> testTask3 = new TaskImpl<Integer>(Arrays.asList(2,4,8,6,9)); 
         testExecutor.addTask(testTask3);
                 
-        Task<Integer> testTask4 = new TaskImpl<Double>(Arrays.asList(2.5,4.8,8.7,6.4,9.1)); 
+        Task<Double> testTask4 = new TaskImpl<Double>(Arrays.asList(2.5,4.8,8.7,6.4,9.1)); 
         testExecutor.addTask(testTask4);
         
      //   testExecutor.execute();
