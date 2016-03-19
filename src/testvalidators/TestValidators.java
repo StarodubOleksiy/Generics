@@ -54,8 +54,8 @@ private Deque<Task> taskQue;
 private List<T> validResult;
 private List<T> inValidResult;
 private Validator validator;
-boolean calledExecute;
-boolean calledAddTask;
+private boolean calledExecute;
+private boolean calledAddTask;
 
 public ExecutorImpl(Validator<? super T> validator)
 {
