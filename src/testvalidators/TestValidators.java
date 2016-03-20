@@ -135,6 +135,33 @@ class NumberValidator implements Validator<Number> {
  }
  }
 
+class StringToNumberValidator implements Validator<String> {
+ private  HashSet<Character> alphabet;
+ 
+ public StringToNumberValidator()
+ {
+   alphabet = new HashSet<>();
+     for(char i = 0 ; i < 46; ++i)
+         alphabet.add(i);        
+         char i = 47;
+         alphabet.add(i);         
+     for(char j = 58 ; j < 256; ++j)
+         alphabet.add(j);
+     
+ }
+    
+ @Override
+ public boolean isValid(String string) {
+     {
+         for(int i = 0; i < string.length(); ++i)
+                if(alphabet.contains(string.charAt(i)))
+     return false;
+     }
+   return true;
+    
+ }
+ }
+
 
 public class TestValidators {
 
@@ -220,7 +247,32 @@ public class TestValidators {
          System.out.println(numberExecutor.getValidResults());
          System.out.println("Invalid results");
           System.out.println(numberExecutor.getInvalidResults());
-           //
+          List<String> listOfNumbers8 = new ArrayList(); 
+          listOfNumbers8.add("0");
+          listOfNumbers8.add("1");
+          listOfNumbers8.add("2");
+          listOfNumbers8.add("3");
+          listOfNumbers8.add("4");
+          listOfNumbers8.add("5");
+          listOfNumbers8.add("6");
+          listOfNumbers8.add("7");
+          listOfNumbers8.add("8");            
+          listOfNumbers8.add("9");
+          listOfNumbers8.add("sd");
+          listOfNumbers8.add("rt");
+          listOfNumbers8.add("mj5");
+          listOfNumbers8.add("67/-");
+          
+          Validator validator2 = new StringToNumberValidator(); 
+          Task<String> testTask8 = new TaskImpl<String>(listOfNumbers8);
+          Executor<String> stringExecutor = new ExecutorImpl<String>(validator2);
+         stringExecutor.addTask(testTask8);
+         stringExecutor.execute();
+         System.out.println("Valid results");
+         System.out.println(stringExecutor.getValidResults());
+         System.out.println("Invalid results");
+          System.out.println(stringExecutor.getInvalidResults());
+        
         
         } catch(Exception exp)
         {
