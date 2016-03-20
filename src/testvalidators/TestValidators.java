@@ -177,27 +177,22 @@ public class TestValidators {
        listOfNumbers.add(new Double(45.6));
        listOfNumbers.add(new Long(46));
        listOfNumbers.add(new Float(77.6));
-       
-        Task<Number> testTask = new TaskImpl<Number>(listOfNumbers); 
+       Task<Number> testTask = new TaskImpl<Number>(listOfNumbers); 
         Validator validator = new NumberValidator(); 
         Executor<Number> testExecutor = new  ExecutorImpl<Number>(validator);
         testExecutor.addTask(testTask);
         
         
         
-        List<Number> listOfNumbers2 = new ArrayList();
-       listOfNumbers2.add(56.45);
-        listOfNumbers2.add(-45.12);
+         List<Number> listOfNumbers2 = new ArrayList();
+         listOfNumbers2.add(56.45);
+         listOfNumbers2.add(-45.12);
          listOfNumbers2.add(7.8);
          listOfNumbers2.add(-7);
          listOfNumbers2.add(-9L);
          listOfNumbers2.add(-10F);
-        //  listOfNumbers2.add(new Double(""));
-       
-        Task<Number> testTask2 = new TaskImpl<Number>(listOfNumbers2); 
-        //Validator validator = new NumberValidator(); 
-        //Executor<Number> testExecutor2 = new  ExecutorImpl<Number>(validator);
-        testExecutor.addTask(testTask2);
+         Task<Number> testTask2 = new TaskImpl<Number>(listOfNumbers2); 
+          testExecutor.addTask(testTask2);
         
         
         Task<Integer> testTask3 = new TaskImpl<Integer>(Arrays.asList(2,4,8,6,9)); 
@@ -206,26 +201,27 @@ public class TestValidators {
         Task<Double> testTask4 = new TaskImpl<Double>(Arrays.asList(2.5,4.8,8.7,6.4,9.1)); 
         testExecutor.addTask(testTask4);
         
-     //   testExecutor.execute();
-        
+           
          List<Integer> listOfNumbers3 = new ArrayList();
          listOfNumbers3.add(1);
          listOfNumbers3.add(2);
          listOfNumbers3.add(3);
          listOfNumbers3.add(4);
          listOfNumbers3.add(5);
-        
-         List<Double> listOfNumbers4 = new ArrayList();
-          Task<Number> testTask5 = new TaskImpl<Number>(listOfNumbers4);
+         Task<Number> testTask45 = new TaskImpl<Number>(listOfNumbers3);
+         testExecutor.addTask(testTask45);
+         
+         List<Double> listOfNumbers4 = new ArrayList();            
          listOfNumbers4.add(6.1);
          listOfNumbers4.add(7.2);
          listOfNumbers4.add(8.3);
          listOfNumbers4.add(9.4);
          listOfNumbers4.add(10.5);
+         Task<Number> testTask5 = new TaskImpl<Number>(listOfNumbers4);
          testExecutor.addTask(testTask5);
-        // System.out.println(testExecutor.getValidResults());
-        //System.out.println(testExecutor.getValidResults());
-        List<Integer> listOfNumbers5 = new ArrayList();
+   
+         
+         List<Integer> listOfNumbers5 = new ArrayList();
           Task<Number> testTask6 = new TaskImpl<Number>(listOfNumbers5);
          listOfNumbers5.add(10);
          listOfNumbers5.add(11);
@@ -238,6 +234,8 @@ public class TestValidators {
          System.out.println(testExecutor.getValidResults());
          System.out.println("Invalid results");
           System.out.println(testExecutor.getInvalidResults());
+          
+          
           
           Task<Number> testTask7 = new TaskImpl<Number>(Arrays.asList(1,2,3,4,5,6,7,8,9,10));
            Executor<Number> numberExecutor = new ExecutorImpl<Number>();
@@ -262,6 +260,9 @@ public class TestValidators {
           listOfNumbers8.add("rt");
           listOfNumbers8.add("mj5");
           listOfNumbers8.add("67/-");
+          
+          
+          
           
           Validator validator2 = new StringToNumberValidator(); 
           Task<String> testTask8 = new TaskImpl<String>(listOfNumbers8);
